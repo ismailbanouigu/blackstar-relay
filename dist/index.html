@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090807" />
+    <meta name="description" content="Discover the hidden rules of a stellar reactor computer played by an AI model." />
+    <title>Blackstar Relay — The machine makes its own weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./config.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.20/dist/connect.js"></script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#console">Skip to reactor controls</a>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-sigil">B·R</span><span>Blackstar<br />Relay</span></a>
+      <nav aria-label="Primary"><a href="#console">Console</a><a href="#protocol">Protocol</a><a href="https://github.com/pollinations/pollinations/issues/19179" target="_blank" rel="noreferrer">Quest #19179 ↗</a></nav>
+      <div class="wallet"><small>OPERATOR LINK</small><polli-connect id="polliConnect" budget="1.5" expiry="7" models="openai/gpt-5.4-nano" hide-buy-pollen menu-links='[{"label":"Quest #19179","href":"https://github.com/pollinations/pollinations/issues/19179","icon":"app"}]'></polli-connect></div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">RECOVERED INSTRUMENT / ORBIT 09</p>
+          <h1 id="hero-title">The machine makes<br />its own <em>weather.</em></h1>
+          <p class="lede">A language model is pretending to be a stellar reactor. It has rules you cannot see, telemetry you can trust only after testing, and six pulses before the core goes dark.</p>
+          <div class="hero-actions"><a class="button primary" href="#console">ENTER CONTROL ROOM <span>↓</span></a><button class="button ghost" id="heroDemo" type="button">PLAY FREE DEMO</button></div>
+          <div class="microfacts"><span>01 MODEL / 01 MACHINE</span><span>06 PULSES</span><span>90% STABILITY TO WIN</span></div>
+        </div>
+        <div class="hero-machine" aria-label="A dark stellar reactor suspended inside a technical diagram">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+          <div class="core"><i></i><b>09</b></div>
+          <div class="probe probe-a"><span>MAG</span></div><div class="probe probe-b"><span>FLX</span></div><div class="probe probe-c"><span>PHASE</span></div>
+          <svg viewBox="0 0 600 600" aria-hidden="true"><path d="M75 330 C175 130 395 105 515 295"/><path d="M90 390 C230 520 430 495 525 340"/><path d="M165 92 L260 215 M490 120 L390 245 M130 505 L255 390"/></svg>
+          <p><span>BLACKSTAR CORE</span> / UNKNOWN INSTRUCTION SET / LINK IDLE</p>
+        </div>
+      </section>
+
+      <section class="console-section" id="console" aria-labelledby="console-title">
+        <div class="section-head"><div><p class="eyebrow">OPERATOR CONSOLE</p><h2 id="console-title">Find the rule.<br /><em>Stabilize the star.</em></h2></div><div class="pulse-counter"><small>PULSES REMAINING</small><strong id="pulsesRemaining">6</strong></div></div>
+
+        <div class="console-shell">
+          <section class="reactor-view" aria-live="polite">
+            <div class="panel-head"><span>CORE CHAMBER / LIVE MODEL</span><span id="machineState">DORMANT</span></div>
+            <div class="reactor-stage" id="reactorStage" style="--stability:18;--heat:26">
+              <div class="grid-lines"></div><div class="reactor-orbit one"></div><div class="reactor-orbit two"></div><div class="reactor-core"><span id="coreValue">18</span><small>STABILITY</small></div>
+              <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div>
+              <p id="signature">SIGNATURE / — — —</p>
+            </div>
+            <div class="telemetry-grid">
+              <article><small>CORE TEMP</small><strong id="temperature">312 K</strong><span class="meter"><i id="tempMeter"></i></span></article>
+              <article><small>MAGNETIC FLUX</small><strong id="flux">0.42 T</strong><span class="meter"><i id="fluxMeter"></i></span></article>
+              <article><small>VESSEL PRESSURE</small><strong id="pressure">1.08 BAR</strong><span class="meter"><i id="pressureMeter"></i></span></article>
+              <article><small>ALARM</small><strong id="alarm">NONE</strong><span class="alarm-dot"></span></article>
+            </div>
+            <div class="machine-message" id="machineMessage"><small>RELAY MESSAGE</small><p>The machine is waiting for its first pulse.</p></div>
+          </section>
+
+          <aside class="control-rack">
+            <div class="panel-head"><span>MANUAL CONTROL</span><span>3 CHANNELS</span></div>
+            <div class="dial-block">
+              <div class="dial-label"><label for="magnetic">MAGNETIC FIELD</label><output id="magneticValue">42</output></div>
+              <input id="magnetic" type="range" min="0" max="100" value="42" />
+              <div class="scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+            </div>
+            <div class="dial-block">
+              <div class="dial-label"><label for="coolant">COOLANT FLOW</label><output id="coolantValue">58</output></div>
+              <input id="coolant" type="range" min="0" max="100" value="58" />
+              <div class="scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+            </div>
+            <div class="dial-block">
+              <div class="dial-label"><label for="phase">HARMONIC PHASE</label><output id="phaseValue">31</output></div>
+              <input id="phase" type="range" min="0" max="100" value="31" />
+              <div class="scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+            </div>
+            <div class="clue-card"><small>LATEST MACHINE CLUE</small><p id="clueText">“Balance is not equality. Listen for the channel that changes twice.”</p></div>
+            <div class="actions"><button class="button primary full" id="livePulse" type="button">TRANSMIT LIVE PULSE <span>→</span></button><button class="button ghost full" id="demoPulse" type="button">ZERO-POLLEN DEMO</button><button class="reset" id="resetRun" type="button">RESET REACTOR</button></div>
+            <p class="privacy">A live pulse uses the temporary Pollinations key you approve. Only a direct button press can spend Pollen. State stays in this tab.</p>
+          </aside>
+        </div>
+
+        <section class="run-log" aria-labelledby="log-title"><div class="log-head"><h3 id="log-title">Pulse archive</h3><span>NEWEST FIRST</span></div><ol id="eventLog"><li class="empty"><time>P–00</time><div><strong>Instrument recovered</strong><p>No command transmitted. The hidden rule is intact.</p></div><span>IDLE</span></li></ol></section>
+      </section>
+
+      <section class="protocol" id="protocol" aria-labelledby="protocol-title">
+        <div class="protocol-copy"><p class="eyebrow">MACHINE / MODEL / WORLD</p><h2 id="protocol-title">Not a chatbot.<br /><em>A system to discover.</em></h2><p>Blackstar Relay gives one Pollinations model a persistent machine state, hidden operating law, and strict JSON protocol. The interface validates every reading before it reaches the gauges.</p></div>
+        <div class="protocol-grid"><article><span>01</span><h3>You set controls</h3><p>Three continuous channels create more than a million possible commands.</p></article><article><span>02</span><h3>The model becomes hardware</h3><p>It advances temperature, flux, pressure, alarms and stability as one coherent computer.</p></article><article><span>03</span><h3>Memory makes a machine</h3><p>Recent pulses return with every request, so clues and physical consequences persist.</p></article></div>
+        <p class="disclaimer">A creative model simulation, not an engineering instrument. No real reactor is controlled.</p>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#top"><span class="brand-sigil">B·R</span><span>Blackstar<br />Relay</span></a><p>Built for Pollinations Quest #19179 · the model plays the machine.</p><a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" /></a></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

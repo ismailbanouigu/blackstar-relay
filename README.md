@@ -4,6 +4,8 @@
 
 Blackstar Relay is a discovery game for [Pollinations Quest #19179](https://github.com/pollinations/pollinations/issues/19179). A Pollinations model plays the part of a mysterious stellar-reactor computer. The player gets six pulses to infer its hidden operating rules from telemetry and stabilize the core.
 
+![Blackstar Relay live app](docs/blackstar-relay.png)
+
 ## How it works
 
 - The player adjusts magnetic field, coolant flow, and harmonic phase.
